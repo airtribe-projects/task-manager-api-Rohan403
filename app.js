@@ -1,20 +1,16 @@
+require("dotenv").config();
 const express = require("express");
-const {
-  getAllTasks,
-  getSingleTask,
-  createTask,
-  updateTask,
-  deleteTask
-} = require("./models/controllers/taskController");
+const taskRoutes = require("./routes/taskRoutes");
+const logger = require("./middleware/loggerMiddleware");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.get("/tasks", getAllTasks);
-app.get("/tasks/:id", getSingleTask);
-app.post("/tasks", createTask);
-app.put("/tasks/:id", updateTask);
-app.delete("/tasks/:id", deleteTask);
+app.use(logger);
+app.use("/api/tasks", taskRoutes);
+app.get('/', (req, res, next) => {
+    res.send("Hello World!!!");
+})
 
 app.listen(port, (err) => {
   if (err) {

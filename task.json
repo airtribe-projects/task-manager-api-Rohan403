@@ -20,14 +20,8 @@
     },
     {
       "id": 5,
-      "title": "Install Mongoose",
-      "description": "Install Mongoose",
-      "completed": false
-    },
-    {
-      "id": 6,
-      "title": "Install Morgan",
-      "description": "Install Morgan",
+      "title": "Hi im title Rohan",
+      "description": "Im description 21",
       "completed": false
     },
     {
